@@ -1,8 +1,8 @@
-# !!!Replace with your unique project name!!!
+# Palette Analyzer
 
 ## Description
 
-!!!Replace with a description of what your program does!!!
+This program allows a user to select a .CSS filetype, then reads through the file to identify the colors present. 
 
 ### v0.2 Updates
 
@@ -15,7 +15,7 @@
 
 ## Developer
 
-!!!Replace with your name!!!
+Lydia Altman
 
 ## Example
 
@@ -29,7 +29,11 @@ g++ --std=c++11 *.cpp -o cvp
 Here is an example of the program running:
 
 ```
-!!!Replace with an example of the program running with user interaction!!!
+Which file would you like to open?
+text.txt
+abcb
+000
+123
 ```
 
 ## C++ Guide

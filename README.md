@@ -6,7 +6,7 @@ This program allows a user to select a .css or .txt filetype, then reads through
 
 ### v0.2 Updates
 
-In this update, the program no longer mistakes inappropriate strings as hexadecimal digits. This program now has additional functionality including identifying unique colors and removing repeated strings. Aditionally, an **if else** statement was changed to an **else** statement to improve efficiency. 
+In this update, the program no longer mistakes inappropriate strings following a # symbol as hexadecimal digits. This program now has additional functionality including identifying unique colors and removing repeated strings. Aditionally, an **if else** statement was changed to an **else** statement to improve efficiency. 
 
 ### v1.0 Updates
 
@@ -46,35 +46,33 @@ Would you like to open another file? ('y' or 'n')
 
 **filename**: filename is a user-input string. When prompted, the user should input the name of the file they want to open and analyze. 
 
-**line**: string data is pulled from the file line by line and assigned to this variable. One line at a time is analyzed to locate a color in hexadecimal format.
+**reader/writer**: these two fstream variables are used to access files for reading and writing. Two files may be open at once, so two fstream variables are required.
 
-**index**: index is an integer variable. When the '#' symbol is located on a line of text, the index of the character is stored in this variable.
+**uniqueList**: uniqeList is a string vector that is use to store all of the unique colors found in a .css file. 
 
-**choice**: this character simply is assigned 'y' or 'n' based on whether the user would like to reenter the filename or enter another filename.
+**userChoice**: this character simply is assigned 'y' or 'n' based on whether the user would like to reenter the filename or enter another filename.
 
 ### Console Input and Output
 
-There are several prompts that are displayed to the user. "Which file would you like to open?" is the first one. If the file cannot be opened, the user is informed that the "File could not be opened." The user is asked if they would like to open another file and may select 'y' to input another filename. The other outputs are the colors that are identified in the file. 
+There are several prompts that are displayed to the user. "Which file would you like to open?" is the first one. If the file cannot be opened, the user is informed that the "File could not be opened." The user is asked if they would like to open another file and may select 'y' to input another filename. The unique colors found are displayed in a numbered list in the console.
 
 ### Decisions
 
-The first decision construct in this program is an **if** statement that checks for the condition that the user-input file is open. If it isn't successfully opened, the user is prompted to enter the file name again. If the file is successfully opened, the analysis begins.
+**if** decision constructs are used to determine that the user-input files are open before reading from or writing to them. If the read file isn't successfully opened, the user is prompted to enter the file name again. If the file is successfully opened, the analysis begins.
 
-Nested within the first, the second **if** construct confirms that a '#' symbol was found and the location was assigned to the variable *index*. 
-
-The remaining **if** statement confirms that the character after the '#' symbol is a hexadecimal character before the position is advanced. 
+**if** statements are also used within functions. One important use is determining whether or not a character is an appropriate hexadecimal character. This is done several times throughout the program.
 
 ### Iteration
 
-Both a **while** loop and a **for** loop are used in this program. The **while** loop instructs the program to read through the file until the end of the file is reached. When a '#' symbol is identified, the **for** loop starts at the position after the '#' and outputs the characters until a non-hexadecimal character is read. The **counter** is informed by the index of the '#' symbol.
+**do-while**, **while**,and **for** loops are used throughout this program. The first **do-while** loop continues the persistent user-input until the user no longer wants to enter another file. **while** loops instruct the program to read through the files until the end of the file is reached. **for** loops are used to read through strings when a # symbol is identified. A **for** loop is also used to display the list of unique colors. 
 
 ### File Input and Output
 
-The user may input a file to be analyzed. 
+The user may input a file to be analyzed. The program creates a new file to record the colors it finds. It then reads that list and pulls only unique colors to store in a vector.
 
 ### Arrays/Vectors
 
-*Coming in version 0.2*
+**uniqueColors** is a vector that stores all of the individual colors located in a file. By comparing the entries in the vector with the new string that may be added, and using the pop_back and push_back functions no repeats are added to the vector.
 
 ### Functions
 

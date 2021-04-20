@@ -6,7 +6,7 @@ This program allows a user to select a .css or .txt filetype, then reads through
 
 ### v0.2 Updates
 
-*Coming soon*
+In this update, the program no longer mistakes inappropriate strings as hexadecimal digits. This program now has additional functionality including identifying unique colors and removing repeated strings. Aditionally, an **if else** statement was changed to an **else** statement to improve efficiency. 
 
 ### v1.0 Updates
 
@@ -31,10 +31,12 @@ Here is an example of the program running:
 ```
 Which file would you like to open?
 text.txt
-Colors identified: 
-#0a1b2cb
-#000
-#123
+The unique colors in this list are:
+1. abc
+2. abcd567
+3. 0a1b2c
+4. 000
+5. 123
 Would you like to open another file? ('y' or 'n')
 ```
 
@@ -42,7 +44,7 @@ Would you like to open another file? ('y' or 'n')
 
 ### Variables and Data Types
 
-**filename**: filename is a user-input string. When prompted, the user should input the name of the file they want to open. 
+**filename**: filename is a user-input string. When prompted, the user should input the name of the file they want to open and analyze. 
 
 **line**: string data is pulled from the file line by line and assigned to this variable. One line at a time is analyzed to locate a color in hexadecimal format.
 
@@ -76,7 +78,11 @@ The user may input a file to be analyzed.
 
 ### Functions
 
-*Coming in version 0.2*
+**FindHexColors** uses the fstream of the file being analyzed as a pass-by reference to accomodate large files and to prevent the file from being opened twice. This function then reads through the file line by line and searches for the '#' symbol. If the characters following are appropriate for a hexadecimal value, the function writes the color code as a string to a new file after converting any upper case letters to lower case. 
+
+**ListUniqueColors** opens the new file to read from it. It's other parameter is an empty string vector pass-by reference. It adds lines from the file to the vector only if the line it is reading has not already been added to the vector.
+
+**dispList** displays a numbered list of all of the unique colors to the console.
 
 ### Classes
 

@@ -60,7 +60,7 @@ There are several prompts that are displayed to the user. "Which file would you 
 
 **if** decision constructs are used to determine that the user-input files are open before reading from or writing to them. If the read file isn't successfully opened, the user is prompted to enter the file name again. If the file is successfully opened, the analysis begins.
 
-**if** statements are also used within functions. One important use is determining whether or not a character is an appropriate hexadecimal character. This is done several times throughout the program.
+**if** statements are also used within functions. One important use is determining whether or not a character is an appropriate hexadecimal character between 'a' and 'f', 'A' and 'F' and between 1 and 9. This is done several times throughout the program.
 
 ### Iteration
 

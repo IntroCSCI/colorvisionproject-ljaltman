@@ -6,11 +6,11 @@ This program allows a user to select a .css or .txt filetype, then reads through
 
 ### v0.2 Updates
 
-In this update, the program no longer mistakes inappropriate strings following a # symbol as hexadecimal digits. This program now has additional functionality including identifying unique colors and removing repeated strings. Aditionally, an **if else** statement was changed to an **else** statement to improve efficiency. 
+In this update, the program no longer mistakes inappropriate strings following a `#` symbol as hexadecimal digits. This program now has additional functionality including identifying unique colors and removing repeated strings. Aditionally, an **if else** statement was changed to an **else** statement to improve efficiency. 
 
 ### v1.0 Updates
 
-*Coming soon*
+New class, 'color', is partially implemented.
 
 
 ## Developer
@@ -60,11 +60,11 @@ There are several prompts that are displayed to the user. "Which file would you 
 
 **if** decision constructs are used to determine that the user-input files are open before reading from or writing to them. If the read file isn't successfully opened, the user is prompted to enter the file name again. If the file is successfully opened, the analysis begins.
 
-**if** statements are also used within functions. One important use is determining whether or not a character is an appropriate hexadecimal character between 'a' and 'f', 'A' and 'F' and between 1 and 9. This is done several times throughout the program.
+**if** statements are also used within functions. One important use is determining whether or not a character is an appropriate hexadecimal character between 'a' and 'f', 'A' and 'F' and between 0 and 9. This is done several times throughout the program.
 
 ### Iteration
 
-**do-while**, **while**,and **for** loops are used throughout this program. The first **do-while** loop continues the persistent user-input until the user no longer wants to enter another file. **while** loops instruct the program to read through the files until the end of the file is reached. **for** loops are used to read through strings when a # symbol is identified. A **for** loop is also used to display the list of unique colors. 
+**do-while**, **while**,and **for** loops are used throughout this program. The first **do-while** loop continues the persistent user-input until the user no longer wants to enter another file. **while** loops instruct the program to read through the files until the end of the file is reached. **for** loops are used to read through strings when a `#` symbol is identified. A **for** loop is also used to display the list of unique colors. 
 
 ### File Input and Output
 
@@ -72,16 +72,17 @@ The user may input a file to be analyzed. The program creates a new file to reco
 
 ### Arrays/Vectors
 
-**uniqueColors** is a vector that stores all of the individual colors located in a file. By comparing the entries in the vector with the new string that may be added, and using the pop_back and push_back functions no repeats are added to the vector.
+**uniqueColors** is a vector that stores all of the individual colors located in a file. By comparing the entries in the vector with the new string that may be added, and using the `pop_back` and `push_back` functions no repeats are added to the vector.
 
 ### Functions
 
-**FindHexColors** uses the fstream of the file being analyzed as a pass-by reference to accomodate large files and to prevent the file from being opened twice. This function then reads through the file line by line and searches for the '#' symbol. If the characters following are appropriate for a hexadecimal value, the function writes the color code as a string to a new file after converting any upper case letters to lower case. 
+**FindHexColors** uses the fstream of the file being analyzed as a pass-by reference to accomodate large files and to prevent the file from being opened twice. This function then reads through the file line by line and searches for the `#` symbol. If the characters following are appropriate for a hexadecimal value, the function writes the color code as a string to a new file after converting any upper case letters to lower case. 
 
-**ListUniqueColors** opens the new file to read from it. It's other parameter is an empty string vector pass-by reference. It adds lines from the file to the vector only if the line it is reading has not already been added to the vector.
+**ListUniqueColors** opens the new file to read from it. Its other parameter is an empty string vector pass-by reference. It adds lines from the file to the vector only if the line it is reading has not already been added to the vector.
 
 **dispList** displays a numbered list of all of the unique colors to the console.
 
 ### Classes
 
-*Coming in version 1.0*
+The class **color** contains variables for the different forms of a coded color. For example, **HexColor**, **rgbColor**, and **brightness** all represent a color after a computation has been made to change or convert it in some way. 
+The intention of this class is to hold the latter variables as well as the functions that proccess and convert coded colors. Unforntunately, this class is not fully implemented due to difficulties with time constraints.
